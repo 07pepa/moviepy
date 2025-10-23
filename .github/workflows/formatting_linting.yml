@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
 
 env:
-  PYTHON_VERSION: "3.9"
+  PYTHON_VERSION: "3.10"
 
 jobs:
   black:
@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4.1.6
+        uses: actions/checkout@v5.0.0
         with:
           ref: ${{ github.event.pull_request.head.sha }}
       - name: Run Black
@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4.1.6
+        uses: actions/checkout@v5.0.0
         with:
           ref: ${{ github.event.pull_request.head.sha }}
       - name: Set up Python environment – ${{ env.PYTHON_VERSION }}
@@ -54,11 +54,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4.1.6
+        uses: actions/checkout@v5.0.0
         with:
           ref: ${{ github.event.pull_request.head.sha }}
       - name: Set up Python environment – ${{ env.PYTHON_VERSION }}
-        uses: actions/setup-python@v5.1.0
+        uses: actions/setup-python@v6.0.0
         with:
           python-version: ${{ env.PYTHON_VERSION }}
       - name: Install dependencies
